@@ -1,4 +1,4 @@
-import { Filter } from "./Filter";
+import { Filter } from "./filter";
 import styles from './Filter.module.scss';
 
 export const AllCategories = () => {

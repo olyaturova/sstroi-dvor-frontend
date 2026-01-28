@@ -1,4 +1,4 @@
-export { Filter } from './ui/Filter';
+export { Filter } from './ui/filter';
 export { AllCategories } from './ui/AllCategories';
 export { setCategory, resetCategory } from './model/categoryFilterSlice';
 export { 
