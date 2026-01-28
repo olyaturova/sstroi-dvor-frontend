@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { getSelectedCategory, filterCategory } from "@/features/category-filter";
-import styles from './Filter.module.scss';
+import styles from './filter.module.scss';
 
 export const Filter = ({ category }) => {
     const dispatch = useDispatch();
