@@ -1,5 +1,5 @@
 import { Filter } from "./filter";
-import styles from './Filter.module.scss';
+import styles from './filter.module.scss';
 
 export const AllCategories = () => {
     const categories = [
