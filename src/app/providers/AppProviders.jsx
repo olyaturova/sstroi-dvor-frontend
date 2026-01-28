@@ -1,11 +1,11 @@
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { AuthProvider } from "@/features/auth/model/AuthContext";
 
 export const AppProviders = ({ children }) => (
 
-  <BrowserRouter>
+  <HashRouter>
   <AuthProvider>
         {children}
   </AuthProvider>
-  </BrowserRouter>
+  </HashRouter>
 );

@@ -10,6 +10,7 @@ import App from './app/App'
 import '../src/shared/styles/styles.css'
 import { store } from './app/store'
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
