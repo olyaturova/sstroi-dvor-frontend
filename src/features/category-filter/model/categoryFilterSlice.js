@@ -4,7 +4,7 @@ const initialState = {
     selectedCategory: "Все категории"
 };
 
-export const categoryFilterSlice = createSlice({
+const categoryFilterSlice = createSlice({
     name: 'categoryFilter',
     initialState,
     reducers: {

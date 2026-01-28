@@ -3,9 +3,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ModalForm from './ModalForm';
 import styles from './AdminDashboard.module.scss';
-import { useAuth } from '@/features/auth/model/auth-context';
+//import { useAuth } from '@/features/auth/model/auth-context';
 import { API_SHOP, initialItemState } from '../model/lib/constants';
 import { Loader } from '@/shared/ui/loader';
+import { useAuth } from '../../auth/model/AuthContext';
 
 const AdminDashboard = () => {
     const { logout, isAdmin } = useAuth();
@@ -159,7 +160,7 @@ const AdminDashboard = () => {
     return (
         <div className="container-fluid py-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
-                <h1 className="">Управление товарами</h1>
+                <h1 className="text-dark">Управление товарами</h1>
                 <button 
                     onClick={handleLogout} 
                     className="btn btn-danger"

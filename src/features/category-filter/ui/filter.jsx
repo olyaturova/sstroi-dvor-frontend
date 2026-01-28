@@ -15,7 +15,7 @@ export const Filter = ({ category }) => {
         : styles.filterButton;
     
     return (
-        <div className={`d-flex justify-content-center align-items-center ${styles.filterContainer}`}>
+        <div className={styles.filterContainer}>
             <button 
                 onClick={handleCategoryClick}
                 className={buttonClass}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { TbShoppingBagHeart } from "react-icons/tb";
 import { Cart } from "@/widgets/cart/cart";
@@ -7,8 +7,11 @@ import styles from './Navbar.module.scss';
 import { TotalArticlesNavbar } from "../../cart/cart-total-indicator";
 import { SideMenu } from "../side-menu/SideMenu";
 
-export const Navbar = ({ active, setActive }) => {
+export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false); 
+  const cartRef = useRef(null);
+  const cartButtonRef = useRef(null);
   
   const toggleMenu = (e) => {
     e?.stopPropagation();
@@ -16,8 +19,36 @@ export const Navbar = ({ active, setActive }) => {
   };
 
   const toggleCart = () => {
-    setActive(!active);
+    setIsCartOpen(prevState => !prevState);
   };
+
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isCartOpen && 
+        cartRef.current && 
+        !cartRef.current.contains(event.target) && 
+        cartButtonRef.current && 
+        !cartButtonRef.current.contains(event.target)
+      ) {
+        setIsCartOpen(false);
+      }
+      
+      // Для меню
+      if (isMenuOpen && !event.target.closest(`.${styles.menuToggle}`)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isCartOpen, isMenuOpen]);
 
   return (
     <>
@@ -47,11 +78,12 @@ export const Navbar = ({ active, setActive }) => {
             </li>
           </ul>
           
-          <div className={styles.cartQuantity}>
+          <div className={styles.cartQuantity} ref={cartButtonRef}>
             <button 
               onClick={toggleCart} 
               className={styles.cartBtn}
               aria-label="Корзина покупок"
+              aria-expanded={isCartOpen}
             > 
               <TbShoppingBagHeart className={styles.cartIcon} />
             </button>
@@ -65,6 +97,7 @@ export const Navbar = ({ active, setActive }) => {
             aria-label="Меню"
             tabIndex={0}
             onKeyDown={(e) => e.key === 'Enter' && toggleMenu(e)}
+            aria-expanded={isMenuOpen}
           >
             <div className={styles.hamburger}>
               <span className={styles.hamburgerTop}></span>
@@ -75,12 +108,12 @@ export const Navbar = ({ active, setActive }) => {
         </nav>
       </header>
       
-      {/* Корзина */}
-      <div className={active ? `${styles.cart} ${styles.openCart}` : styles.cart}>
-        <Cart active={active} setActive={setActive} />
-      </div>
-      
-      {/* Боковое меню */}
+      {isCartOpen && (
+        <div className={styles.cartOverlay} ref={cartRef}>
+          <Cart active={isCartOpen} setActive={setIsCartOpen} />
+        </div>
+      )}
+ 
       <SideMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} toggleMenu={toggleMenu} />
     </>
   );

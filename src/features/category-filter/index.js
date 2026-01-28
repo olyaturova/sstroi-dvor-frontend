@@ -1,8 +1,11 @@
 export { Filter } from './ui/filter';
-export { AllCategories } from './ui/All-categories';
+export { AllCategories } from './ui/AllCategories';
+export { setCategory, resetCategory } from './model/categoryFilterSlice';
+export { 
+    selectSelectedCategory, 
+    selectIsCategoryActive, 
+    selectHasActiveFilter 
+} from './lib/selectors';
 
-export { setCategory, resetCategory } from './model/category-filter-slice';
-export { selectSelectedCategory } from './lib/selectors';
-
-export { setCategory as filterCategory } from './model/category-filter-slice';
+export { setCategory as filterCategory } from './model/categoryFilterSlice';
 export { selectSelectedCategory as getSelectedCategory } from './lib/selectors';

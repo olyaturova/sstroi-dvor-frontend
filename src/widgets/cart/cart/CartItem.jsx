@@ -18,14 +18,16 @@ export const CartItem = ({ cartItem }) => {
     
     const isDefaultImage = imageUrl.includes('default-product');
 
-    const addQuantity = () => {
+    const addQuantity = (e) => {
+        e.stopPropagation();
         dispatch(updateCartItemQuantity({ 
             productId: cartItem.productId, 
             quantity: cartItem.quantity + 1
         }));
     };
     
-    const removeQuantity = () => {
+    const removeQuantity = (e) => {
+        e.stopPropagation();
         if (cartItem.quantity > 1) {
             dispatch(updateCartItemQuantity({ 
                 productId: cartItem.productId, 
@@ -34,12 +36,21 @@ export const CartItem = ({ cartItem }) => {
         }
     };
 
+    const handleRemoveItem = (e) => {
+        e.stopPropagation();
+        dispatch(removeItemFromCart({ cartItemId: cartItem.id }));
+    };
+
     const handleImageError = () => {
         setImageError(true);
     };
 
+    const handleItemClick = (e) => {
+        e.stopPropagation();
+    };
+
     return(
-        <div className={styles.flex}>
+        <div className={styles.flex} onClick={handleItemClick}>
             <div className={styles.itemPhotoInCart}>
                 <img 
                     className={styles.itemImage} 
@@ -57,7 +68,7 @@ export const CartItem = ({ cartItem }) => {
                 <div className={styles.flexRelative}>
                     <p className={styles.itemNameInCart}>{ cartItem.productName }</p>
                     <span 
-                        onClick={() => dispatch(removeItemFromCart({ cartItemId: cartItem.id }))}
+                        onClick={handleRemoveItem}
                         className={styles.trashIcon}
                     >
                         <FaRegTrashAlt className={styles.trashBin}/>

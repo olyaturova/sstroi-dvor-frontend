@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://stroi-dvor-backend.onrender.com';
+export const BASE_URL = 'https://sstroi-dvor-backend.onrender.com';
 
 export const API_ENDPOINTS = {
     SHOP: `${BASE_URL}/api/shop`,

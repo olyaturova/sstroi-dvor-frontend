@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "@/features/auth/model/auth-context";
+import { AuthProvider } from "@/features/auth/model/AuthContext";
 
 export const AppProviders = ({ children }) => (
 
   <BrowserRouter>
- <AuthProvider>
+  <AuthProvider>
         {children}
-</AuthProvider>
+  </AuthProvider>
   </BrowserRouter>
 );

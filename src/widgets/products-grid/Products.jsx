@@ -49,9 +49,24 @@ export const Products = () => {
         }
     }, [products]);
 
+    // Функция для нормализации строк
+    const normalizeString = (str) => {
+        if (!str) return '';
+        return String(str)
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, ' ');
+    };
+
     const filteredProducts = products.filter(product => {
         if (selectedCategory === 'Все категории') return true;
-        return selectedCategory === product.category;
+        
+        if (!product.category) return false;
+        
+        const normalizedSelected = normalizeString(selectedCategory);
+        const normalizedProduct = normalizeString(product.category);
+        
+        return normalizedSelected === normalizedProduct;
     });
 
     if (loading) {
@@ -98,14 +113,16 @@ export const Products = () => {
         );
     }
 
-    return(
-        <div className={`${styles.productsGrid} ${styles.animatedElement}`} ref={ref}>
-            {filteredProducts.map(product =>
-                <Product 
-                    product={product} 
-                    key={product._id || product.id}
-                />
-            )}
+    return (
+        <div className={styles.productsContainer}>
+            <div className={`${styles.productsGrid} ${styles.animatedElement}`} ref={ref}>
+                {filteredProducts.map(product =>
+                    <Product 
+                        product={product} 
+                        key={product._id || product.id}
+                    />
+                )}
+            </div>
         </div>
     );
 };

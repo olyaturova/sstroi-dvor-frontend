@@ -18,18 +18,29 @@ export const Cart = ({ active, setActive }) => {
         setActive(!active);
     };
 
-    const handleClearCart = () => {
+    const handleClearCart = (e) => {
+        e.stopPropagation();
         dispatch(clearCart());
     };
 
+    const handleCartClick = (e) => {
+        e.stopPropagation();
+    };
+
     return(
-        <div className={`${styles.cart} ${active ? styles.openCart : ''}`}>
+        <div 
+            className={`${styles.cart} ${active ? styles.openCart : ''}`}
+            onClick={handleCartClick}
+        >
             <div className={styles.startColumn}>
                 <div className={`${styles.cartTopLine} ${styles.flexRelative}`}>
                     <p className={styles.cartTop}>Корзина покупок</p>
                     <VscClose 
                         className={styles.closeCartIcon} 
-                        onClick={toggleCart} 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            toggleCart();
+                        }} 
                         aria-label="Закрыть корзину"
                     />
                 </div>

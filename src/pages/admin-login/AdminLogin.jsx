@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-//import { useAuth } from '../../app/providers/AuthProvider';
 import styles from './AdminLogin.module.scss';
-import { useAuth } from '../../features/auth/model/auth-context';
+import { useAuth } from '../../features/auth/model/AuthContext';
 
 const AdminLogin = () => {
     const [username, setUsername] = useState('');

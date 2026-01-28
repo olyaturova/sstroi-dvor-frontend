@@ -2,8 +2,7 @@ import { React, useEffect, useRef } from "react";
 import { AllCategories } from "@/features/category-filter";
 import { gsap } from "gsap"; 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Products } from "@/widgets/products-grid";
-import styles from './Shop.module.scss';
+import { Products } from "../../widgets/products-grid/Products";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +32,7 @@ const Shop = () => {
                     </div>
                 </div>
             
-                    <Products />
+                   <Products />
     
             </section>
         </div>

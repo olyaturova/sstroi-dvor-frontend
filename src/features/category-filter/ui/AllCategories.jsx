@@ -1,7 +1,9 @@
 import { Filter } from "./filter";
+import styles from './Filter.module.scss';
 
 export const AllCategories = () => {
-    const categories = ['Все категории', 
+    const categories = [
+        'Все категории', 
         'Стеновые и фасадные материалы', 
         'Кровля и водосточная система', 
         'Цемент и сыпучие материалы', 
@@ -11,11 +13,13 @@ export const AllCategories = () => {
         'Поликарбонат', 
         'Краски', 
         'Пена монтажная, жидкие гвозди', 
-        'Сантехника', 'Кирпич', 
-        'Погонажные изделия'];
+        'Сантехника', 
+        'Кирпич', 
+        'Погонажные изделия'
+    ];
     
     return (
-        <div className="d-flex justify-content-center flex-wrap gap-2 mb-5">
+        <div className={styles.filterGroup}>
             {categories.map((category, index) => 
                 <Filter category={category} key={index}/>
             )}

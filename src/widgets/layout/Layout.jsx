@@ -4,6 +4,7 @@ import { Navbar } from "@/widgets/header";
 
 import { Footer } from "@/widgets/footer";
 import { ScrollToTopBtn } from "@/shared/scroll";
+import { ScrollToTop } from "@/shared/scroll";
 
 export const Layout = () => {
   const [active, setActive] = useState(true);
@@ -14,8 +15,8 @@ export const Layout = () => {
       <main>
         <Outlet /> 
       </main>
-      
-     <ScrollToTopBtn />
+    <ScrollToTop />
+    <ScrollToTopBtn />
       
       <Footer />
     </>
