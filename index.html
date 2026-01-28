@@ -1,14 +1,33 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/sstroi-dvor/house.png" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STROI DVOR</title>
-    <script type="module" crossorigin src="/sstroi-dvor/assets/index-DMo04c52.js"></script>
+    <title>СтройДвор</title>
+    <script type="module" crossorigin src="/sstroi-dvor/assets/index-BGc4nz6e.js"></script>
     <link rel="stylesheet" crossorigin href="/sstroi-dvor/assets/index-nqAX0cN4.css">
   </head>
   <body>
     <div id="root"></div>
+    
+
+    <script>
+      (function() {
+
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        
+        if (redirect && redirect !== location.href) {
+  
+          if (redirect.includes('/admin/')) {
+            var path = redirect.split('/sstroi-dvor')[1];
+            if (path) {
+              history.replaceState(null, null, path);
+            }
+          }
+        }
+      })();
+    </script>
   </body>
 </html>
