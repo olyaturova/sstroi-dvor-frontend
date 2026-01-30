@@ -1,0 +1,82 @@
+
+.announcement {
+  background-color: #202020;
+  padding: 15px 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.scrollingText {
+     width: 100%;
+    display: flex;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    color: transparent;
+    -webkit-text-stroke: 1px #bfbfbf;
+    font-size: 70px;
+    font-family: Poppins, sans-serif;
+    animation: scrollText 20s linear infinite;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media all and (max-width: 950px) {
+  .announcement {
+    padding: 12px 0;
+  }
+  
+  .scrollingText {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .announcement {
+    padding: 10px 0;
+  }
+  
+  .scrollingText {
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .announcement {
+    padding: 8px 0;
+  }
+  
+  .scrollingText {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 413px) {
+  .announcement {
+    padding: 6px 0;
+  }
+  
+  .scrollingText {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width: 344px) {
+  .announcement {
+    padding: 5px 0;
+  }
+  
+  .scrollingText {
+    font-size: 12px;
+  }
+}
+
+

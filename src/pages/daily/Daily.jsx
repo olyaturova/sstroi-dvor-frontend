@@ -1,5 +1,4 @@
 import { React, useEffect, useRef } from "react";
-//import { AccordionDaily } from "@/widgets/accordionDaily";
 import { FeedbackForm } from "@/features/feedback-form";
 import { gsap } from "gsap"; 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,7 +14,7 @@ const Daily = () => {
     useEffect(() => {
         ref.current.forEach((el) => {
             gsap.fromTo(el, { y: 50, opacity: 0 }, {
-                y: 0, opacity: 1, duration: 0.7, scrollTrigger: {
+                y: 0, opacity: 1, duration: 0.2, scrollTrigger: {
                     trigger: el,
                     start: "top bottom-=70",
                     toggleActions: "play none none reverse"

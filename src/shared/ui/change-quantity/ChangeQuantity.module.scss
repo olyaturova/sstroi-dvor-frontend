@@ -1,0 +1,112 @@
+.addedItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.addDeleteBtn {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #202020;
+  background: #E5E4E2;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+}
+
+.addedQuantity {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0px 12px;
+}
+
+@media all and (max-width: 950px) {
+  .addedItems {
+    margin-bottom: 12px;
+  }
+  
+  .addDeleteBtn {
+    padding: 8px;
+    font-size: 18px;
+  }
+  
+  .addedQuantity {
+    font-size: 18px;
+    margin: 0px 10px;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .addedItems {
+    margin-bottom: 10px;
+  }
+  
+  .addDeleteBtn {
+    padding: 7px;
+    font-size: 17px;
+  }
+  
+  .addedQuantity {
+    font-size: 17px;
+    margin: 0px 8px;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .addedItems {
+    margin-bottom: 8px;
+  }
+  
+  .addDeleteBtn {
+    padding: 6px;
+    font-size: 16px;
+  }
+  
+  .addedQuantity {
+    font-size: 16px;
+    margin: 0px 6px;
+  }
+}
+
+@media all and (max-width: 413px) {
+  .addedItems {
+    margin-bottom: 6px;
+  }
+  
+  .addDeleteBtn {
+    padding: 5px;
+    font-size: 15px;
+  }
+  
+  .addedQuantity {
+    font-size: 15px;
+    margin: 0px 5px;
+  }
+}
+
+@media all and (max-width: 344px) {
+  .addedItems {
+    margin-bottom: 5px;
+  }
+  
+  .addDeleteBtn {
+    padding: 4px;
+    font-size: 14px;
+  }
+  
+  .addedQuantity {
+    font-size: 14px;
+    margin: 0px 4px;
+  }
+}
+
+

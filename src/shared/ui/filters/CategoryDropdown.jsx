@@ -1,6 +1,7 @@
 import React from 'react'; 
 import Dropdown from 'react-bootstrap/Dropdown'; 
 import { FaFilter } from "react-icons/fa";
+import styles from './CategoryDropdown.module.scss';
 
 export const CategoryDropdown = ({ 
     options = [],          
@@ -27,21 +28,23 @@ export const CategoryDropdown = ({
         : buttonLabel;
 
     return (
-        <Dropdown className={`filter-stock ${className}`}>
+        <Dropdown className={`${styles.filterStock} ${className}`}>
             <Dropdown.Toggle 
                 variant="light" 
                 id="dropdown-basic"
                 disabled={disabled}
+                className="filtered-stocks"
             >
-                <FaFilter className="filter-icon"/> {currentLabel}
+                <FaFilter className={styles.filterIcon}/> {currentLabel}
             </Dropdown.Toggle>
 
-            <Dropdown.Menu className="dropdown-menu">
+            <Dropdown.Menu className={styles.dropdownMenu}>
                 {showAllOption && (
                     <Dropdown.Item 
                         as="button" 
                         onClick={() => handleSelect('all')}
                         active={!selectedValue}
+                        className={styles.dropdownItem}
                     >
                         {allLabel}
                     </Dropdown.Item>
@@ -53,6 +56,7 @@ export const CategoryDropdown = ({
                         as="button" 
                         onClick={() => handleSelect(option.value)}
                         active={selectedValue === option.value}
+                        className={styles.dropdownItem}
                     >
                         {option.label}
                     </Dropdown.Item>

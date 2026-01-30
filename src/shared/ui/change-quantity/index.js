@@ -1,1 +1,1 @@
-export * from './Change-quantity';
+export * from './ChangeQuantity';

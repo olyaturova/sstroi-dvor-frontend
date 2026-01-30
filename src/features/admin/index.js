@@ -7,4 +7,3 @@ export {
     CATEGORIES, 
     getImageUrl 
 } from './model/lib/constants';
-
